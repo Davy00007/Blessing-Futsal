@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f7a3d">
+<title>Blessing Futsal Purwakarta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0f7a3d;--gd:#0a5a2c;--gl:#e6f4ec;--r:#c0392b;--rl:#fdecea;--y:#f1c40f;--t:#1c2a22;--m:#6b7a71;--b:#dbe5df;--bg:#f5f8f6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--t);padding-bottom:72px}
+header{background:#fff;border-bottom:1px solid var(--b);padding:12px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px;position:sticky;top:0;z-index:5}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.3px;cursor:pointer;line-height:1.05}
+.logo small{display:block;font-size:10px;letter-spacing:2px;color:var(--g)}.lg{width:40px;height:40px;border-radius:10px;background:var(--g);color:#fff;display:grid;place-items:center;font-size:20px}
+.tn{display:flex;gap:2px;background:#eef3f0;border-radius:12px;padding:5px}.tn a{padding:9px 16px;border-radius:9px;font-size:14px;font-weight:500;color:#33423a;cursor:pointer}.tn a.on{background:#fff;font-weight:700;color:var(--g)}
+.hr{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:700}.hr a{cursor:pointer}.hr button{letter-spacing:.3px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--b);border-radius:8px;padding:8px 14px;font-size:12px;font-weight:800;letter-spacing:.5px;margin:22px 0 14px}.dot{width:8px;height:8px;border-radius:50%;background:#2ecc71}
+.big{font-size:clamp(34px,7vw,68px);font-weight:800;letter-spacing:-2.5px;line-height:1;margin-bottom:14px}.ul{background:linear-gradient(transparent 86%,#8bd02a 86%);display:inline;color:var(--g)}
+.sub{color:var(--m);font-size:clamp(15px,2.4vw,19px);max-width:760px;line-height:1.55;margin-bottom:16px;font-weight:300}
+.feats{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;font-weight:600;margin-bottom:22px}
+.two{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:start}
+.vi{display:flex;gap:12px;border:1px solid var(--b);border-radius:12px;padding:10px;margin-bottom:10px;cursor:pointer;background:#fff;align-items:center}
+.vimg{width:104px;height:84px;border-radius:8px;flex:none;position:relative;background:linear-gradient(90deg,transparent 49%,rgba(255,255,255,.7) 49% 51%,transparent 51%),radial-gradient(circle at 50% 50%,transparent 17%,rgba(255,255,255,.7) 17% 19%,transparent 19%),#1f9d55;border:3px solid #157a40}
+.vimg b{position:absolute;left:0;bottom:0;background:#0a2e1a;color:#fff;font-size:10px;padding:3px 8px;border-radius:0 6px 0 0;letter-spacing:.5px}
+.vi h4{font-size:16px}.vi .ft{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;font-size:13px;font-weight:700;color:var(--g)}
+.ok2{background:var(--gl);color:var(--gd);padding:3px 8px;border-radius:6px;font-size:11px;font-weight:800}.no2{background:var(--rl);color:var(--r);padding:3px 8px;border-radius:6px;font-size:11px;font-weight:800}
+.dark{background:linear-gradient(160deg,#0b5b30,#06371d);color:#fff;border-radius:16px;padding:20px}.dark .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);margin:0 0 12px;font-size:11px;color:#f1c40f}
+.dark h3{font-size:26px;letter-spacing:-1px;font-weight:800}.dark .mu{opacity:.7;font-size:12px;margin:2px 0 14px}.dark .cl{margin-bottom:12px;font-size:13px;font-weight:600}
+.bar{display:grid;grid-template-columns:repeat(15,1fr);gap:3px;margin:5px 0 3px}.bar i{height:18px;border-radius:3px;background:#2ecc71}.bar i.full{background:#e74c3c}.bar i.blk{background:#7f8c8d}
+.dark button{background:#fff;color:var(--g);width:100%;margin-top:6px}
+nav{display:none!important}body{padding-bottom:20px}
+@media(max-width:800px){header{flex-wrap:wrap;padding:10px 14px;gap:10px}.logo{font-size:15px}.lg{width:34px;height:34px}.hr .lnk{display:none}.two{grid-template-columns:1fr}
+.tn{order:3;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.tn::-webkit-scrollbar{display:none}.tn a{white-space:nowrap;padding:8px 13px;font-size:13px;flex:none}}
+.wrap{max-width:1160px;margin:0 auto;padding:14px}
+.card{background:#fff;border:1px solid var(--b);border-radius:12px;padding:14px;margin-bottom:12px}
+h2{font-size:18px;margin-bottom:10px}h3{font-size:15px;margin-bottom:6px}
+label{display:block;font-size:13px;color:var(--m);margin:10px 0 4px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--b);border-radius:8px;font:inherit;background:#fff}
+button{font:inherit;cursor:pointer;border:0;border-radius:8px;padding:10px 14px;background:var(--g);color:#fff;font-weight:600}
+button.s{background:#fff;color:var(--g);border:1px solid var(--g)}button.d{background:var(--r)}button.sm{padding:6px 10px;font-size:13px}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1;min-width:120px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--b);display:flex;z-index:6}
+nav a{flex:1;text-align:center;padding:9px 2px;font-size:11px;color:var(--m);text-decoration:none;cursor:pointer}
+nav a b{display:block;font-size:18px}nav a.on{color:var(--g);font-weight:700}
+.hero{background:linear-gradient(135deg,var(--g),var(--gd));color:#fff;border-radius:12px;padding:20px;margin-bottom:12px}
+.hero p{opacity:.9;margin:6px 0 12px;font-size:14px}.hero button{background:#fff;color:var(--g)}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border:1px solid var(--b);padding:6px;text-align:center}th{background:var(--gl)}
+.free{background:var(--gl);color:var(--gd);cursor:pointer;font-weight:600}.full{background:var(--rl);color:var(--r)}.blk{background:#e5e7e6;color:var(--m)}
+.tag{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;font-weight:600}
+.t-Belum{background:var(--rl);color:var(--r)}.t-DP{background:#fff6d6;color:#8a6d00}.t-Lunas{background:var(--gl);color:var(--gd)}.t-Batal{background:#e5e7e6;color:var(--m)}
+.item{border:1px solid var(--b);border-radius:10px;padding:10px;margin-bottom:8px;background:#fff}
+.item .top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.muted{color:var(--m);font-size:13px}.msg{padding:10px;border-radius:8px;margin:8px 0;font-size:14px}
+.ok{background:var(--gl);color:var(--gd)}.er{background:var(--rl);color:var(--r)}
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:20;padding:14px}
+#modal>div{background:#fff;border-radius:12px;padding:16px;max-width:460px;width:100%;max-height:90vh;overflow:auto}
+.tabs{display:flex;gap:6px;margin-bottom:12px}.tabs button{flex:1;background:#fff;color:var(--g);border:1px solid var(--g)}.tabs button.on{background:var(--g);color:#fff}
+.kw{border:2px dashed var(--m);padding:14px;font-size:14px}.kw h3{text-align:center}.kw td{border:0;text-align:left;padding:3px}
+@media print{body>*:not(#modal){display:none!important}#modal{position:static;background:#fff;display:block!important}#modal button{display:none}}
+</style>
+</head>
+<body>
+<header><a class="logo" onclick="go('home')"><span class="lg">⚽</span><span>BLESSING FUTSAL<small>PURWAKARTA</small></span></a><div class="tn" id="tnav"></div><div class="hr" id="who"></div></header>
+<div class="wrap" id="app"></div>
+<nav id="nav"></nav>
+<div id="modal" onclick="if(event.target===this)closeM()"><div id="mbody"></div></div>
+
+<script>
+/* ===== Data (prototype: disimpan di localStorage browser) ===== */
+const HOURS=[...Array(15)].map((_,i)=>8+i); // 08:00 - 22:00 (mulai)
+const COURTS=[1,2,3];
+const ADMIN_PASS='admin123';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rp=n=>'Rp '+Number(n||0).toLocaleString('id-ID');
+const hh=h=>String(h).padStart(2,'0')+':00';
+const today=()=>new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+const fmtD=d=>new Date(d+'T00:00').toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+function ld(k,def){try{const v=localStorage.getItem(k);return v?JSON.parse(v):def}catch(e){return def}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+let S={
+  profile:ld('bf_profile',{nama:'Blessing Futsal Purwakarta',alamat:'Purwakarta, Jawa Barat (ubah alamat lengkap lewat menu Admin)',wa:'08xxxxxxxxxx',buka:'08.00 - 23.00 WIB',harga:100000,rek:'BCA 0000000000 a.n. Blessing Futsal',desk:'Futsal indoor dengan 3 lapangan, nyaman untuk latihan, turnamen kecil, maupun main bareng teman.'}),
+  bookings:ld('bf_bookings',[]),blocks:ld('bf_blocks',[]),
+  user:ld('bf_user',null),users:ld('bf_users',[]),authMode:'login',role:'pelanggan',admin:ld('bf_admin',false),page:'home',pre:{},adminTab:'booking',jd:today(),q:''
+};
+const save=()=>{sv('bf_profile',S.profile);sv('bf_bookings',S.bookings);sv('bf_blocks',S.blocks);sv('bf_user',S.user);sv('bf_users',S.users);sv('bf_admin',S.admin)};
+
+/* ===== Logika inti ===== */
+// FR-4 & FR-9: cek ketersediaan sebelum simpan / ubah jadwal
+function avail(date,court,start,dur,ignoreId){
+  for(let h=start;h<start+dur;h++){
+    if(h>=24)return false;
+    if(S.blocks.some(b=>b.date===date&&b.court===court&&b.hour===h))return false;
+    if(S.bookings.some(b=>b.id!==ignoreId&&b.status!=='Batal'&&b.date===date&&b.court===court&&h>=b.start&&h<b.start+b.dur))return false;
+  }
+  return true;
+}
+function cellState(date,court,h){
+  if(S.blocks.some(b=>b.date===date&&b.court===court&&b.hour===h))return 'blk';
+  if(S.bookings.some(b=>b.status!=='Batal'&&b.date===date&&b.court===court&&h>=b.start&&h<b.start+b.dur))return 'full';
+  return 'free';
+}
+const total=b=>b.dur*S.profile.harga;
+const payTag=b=>b.status==='Batal'?'Batal':b.bayar>=total(b)?'Lunas':b.bayar>0?'DP':'Belum';
+const payLbl={Belum:'Belum Bayar',DP:'DP',Lunas:'Lunas',Batal:'Dibatalkan'};
+
+/* ===== Navigasi ===== */
+function go(p,pre){S.page=p;S.pre=pre||{};render();scrollTo(0,0)}
+function render(){
+  if(S.admin)S.page='admin';
+  $('who').innerHTML=S.admin?'<span>Admin</span><a onclick="logout()">KELUAR</a>':S.user?'<span class="lnk">'+esc(S.user.nama)+'</span><a onclick="logout()">KELUAR</a>':'<a onclick="S.authMode=\'login\';S.role=\'pelanggan\';go(\'auth\')">⇥ MASUK</a><button class="sm" onclick="S.authMode=\'daftar\';go(\'auth\')">DAFTAR</button>';
+  const items=S.admin?[['admin','📊','Dashboard Admin']]:[['home','🏠','Beranda'],['jadwal','📅','Jadwal'],['booking','📝','Booking'],['riwayat','🧾','Pesanan']];
+  $('tnav').innerHTML=items.map(i=>`<a class="${S.page===i[0]?'on':''}" onclick="go('${i[0]}')">${i[2]==='Jadwal'?'Cari Lapangan':i[2]==='Pesanan'?'Pesanan Saya':i[2]==='Admin'?'Untuk Admin':i[2]}</a>`).join('');
+  $('nav').innerHTML=items.map(i=>`<a class="${S.page===i[0]?'on':''}" onclick="go('${i[0]}')"><b>${i[1]}</b>${i[2]}</a>`).join('');
+  $('app').innerHTML=({home,profil,jadwal,booking,riwayat,admin,auth:loginForm})[S.page]();
+}
+function logout(){S.user=null;S.admin=false;save();go('home')}
+function openM(h){$('mbody').innerHTML=h;$('modal').style.display='flex'}
+function closeM(){$('modal').style.display='none'}
+
+/* ===== Beranda / Profil (FR-1) ===== */
+function home(){
+  const p=S.profile,t=today(),nowH=new Date().getHours();
+  const free=c=>HOURS.filter(h=>h>nowH&&cellState(t,c,h)==='free').length;
+  return `<div class="chip"><span class="dot"></span>${COURTS.length} LAPANGAN TERDAFTAR</div>
+  <h1 class="big">MAIN FUTSAL <span class="ul">GAK PAKE RIBET.</span></h1>
+  <p class="sub">Pilih jam, kirim booking, langsung main tanpa antre chat WhatsApp. Cek lapangan futsal ${esc(p.nama)} yang kosong hari ini.</p>
+  <div class="feats"><span>⚡ Jadwal terkini</span><span>🏷️ Harga transparan</span><span>✅ Dikonfirmasi admin</span></div>
+  <div class="two"><div class="card"><h2>LAPANGAN REKOMENDASI</h2><p class="muted" style="margin-bottom:12px">Pilih lapangan favoritmu dan booking langsung tanpa antre.</p>
+  ${COURTS.map(c=>{const f=free(c);return `<div class="vi" onclick="go('booking',{date:'${t}',court:${c}})"><div class="vimg"><b>LAPANGAN</b></div><div style="flex:1"><h4>Lapangan ${c}</h4><div class="muted">📍 ${esc(p.alamat.split('(')[0])}</div><div class="ft"><span>Mulai ${rp(p.harga)}/jam</span><span class="${f?'ok2':'no2'}">${f?'TERSEDIA':'PENUH'}</span></div></div></div>`}).join('')}</div>
+  <div class="dark"><div class="chip">● JADWAL HARI INI</div><h3>KETERSEDIAAN HARI INI</h3><div class="mu">${fmtD(t)} | ${esc(p.buka)}</div>
+  ${COURTS.map(c=>`<div class="cl">Lapangan ${c} <span style="opacity:.7;font-weight:400">(${free(c)} slot kosong)</span><div class="bar">${HOURS.map(h=>`<i class="${cellState(t,c,h)}" title="${hh(h)}"></i>`).join('')}</div></div>`).join('')}
+  <div class="mu">Hijau: kosong, merah: terisi, abu-abu: ditutup. Jam ${hh(HOURS[0])} sampai ${hh(HOURS[HOURS.length-1])}.</div>
+  <button onclick="go('jadwal')">Lihat Jadwal Lengkap</button></div></div>
+  <div style="margin-top:18px">${profil()}</div>`;
+}
+function profil(){
+  const p=S.profile;
+  return `<div class="card"><h2>Profil ${esc(p.nama)}</h2><p>${esc(p.desk)}</p></div>
+  <div class="card"><h3>📍 Alamat</h3><p>${esc(p.alamat)}</p>
+  <a href="https://www.google.com/maps/search/${encodeURIComponent(p.nama+' '+p.alamat)}" target="_blank" rel="noopener"><button class="s sm" style="margin-top:8px">Buka di Google Maps</button></a></div>
+  <div class="card"><h3>🕒 Informasi</h3><p class="muted">Jam operasional</p><p>${esc(p.buka)}</p>
+  <p class="muted" style="margin-top:8px">Harga sewa</p><p>${rp(p.harga)} / jam (Lapangan 1, 2, dan 3)</p>
+  <p class="muted" style="margin-top:8px">Kontak WhatsApp</p><p>${esc(p.wa)}</p></div>
+  <div class="card"><h3>Cara Booking</h3><ol style="padding-left:18px;line-height:1.7;font-size:14px"><li>Login dengan nama dan nomor WhatsApp</li><li>Lihat jadwal kosong</li><li>Isi formulir booking</li><li>Bayar DP atau bayar di tempat, lalu minta kwitansi ke admin</li></ol></div>`;
+}
+
+/* ===== Jadwal (FR-2) ===== */
+function gridHTML(date,clickable){
+  let h=`<div class="scroll"><table><tr><th>Jam</th>${COURTS.map(c=>`<th>Lap ${c}</th>`).join('')}</tr>`;
+  HOURS.forEach(x=>{h+=`<tr><td>${hh(x)}</td>`+COURTS.map(c=>{const s=cellState(date,c,x);
+    return `<td class="${s}" ${s==='free'&&clickable?`onclick="go('booking',{date:'${date}',court:${c},start:${x}})"`:''}>${s==='free'?'Kosong':s==='full'?'Terisi':'Tutup'}</td>`}).join('')+'</tr>'});
+  return h+'</table></div>';
+}
+function jadwal(){
+  return `<div class="card"><h2>Jadwal Ketersediaan</h2><label>Tanggal</label><input type="date" value="${S.jd}" min="${today()}" onchange="S.jd=this.value;render()">
+  <p class="muted" style="margin:8px 0">${fmtD(S.jd)}. Ketuk sel hijau untuk booking.</p>${gridHTML(S.jd,true)}</div>`;
+}
+
+/* ===== Login Pelanggan + Booking (FR-3, FR-4) ===== */
+function loginForm(){
+  const m=S.authMode,r=S.role,lk=(t,v)=>`<a onclick="S.authMode='${v}';render()" style="color:var(--g);font-weight:700;cursor:pointer">${t}</a>`;
+  return `<div class="card" style="max-width:440px;margin:24px auto"><h2>${m==='daftar'?'Daftar Akun Pelanggan':'Masuk'}</h2>
+  ${m==='login'?`<div class="tabs"><button class="${r==='pelanggan'?'on':''}" onclick="S.role='pelanggan';render()">Pelanggan</button><button class="${r==='admin'?'on':''}" onclick="S.role='admin';render()">Admin</button></div>`:''}
+  ${m==='daftar'?'<label>Nama</label><input id="ln" placeholder="Nama lengkap">':''}
+  ${m==='daftar'||r==='pelanggan'?'<label>Nomor WhatsApp</label><input id="lw" type="tel" placeholder="08xxxxxxxxxx">':''}
+  <label>Password</label><input id="lp" type="password" placeholder="Password">
+  <div id="le"></div><button style="margin-top:12px;width:100%" onclick="doAuth()">${m==='daftar'?'Daftar':'Masuk'}</button>
+  <p class="muted" style="margin-top:12px;text-align:center">${m==='login'?'Belum punya akun? '+lk('Daftar','daftar'):'Sudah punya akun? '+lk('Masuk','login')}</p>
+  ${m==='login'&&r==='admin'?'<p class="muted" style="text-align:center">Demo prototype: password admin123</p>':''}</div>`;
+}
+function doAuth(){
+  const m=S.authMode,r=S.role,pw=$('lp').value,err=t=>{$('le').innerHTML='<div class="msg er">'+t+'</div>'};
+  if(m==='login'&&r==='admin'){if(pw!==ADMIN_PASS)return err('Password admin salah.');S.admin=true;S.user=null;save();return go('admin')}
+  const w=$('lw').value.replace(/\D/g,'');
+  if(w.length<9)return err('Nomor WhatsApp tidak valid.');
+  if(pw.length<4)return err('Password minimal 4 karakter.');
+  if(m==='daftar'){
+    const n=$('ln').value.trim();if(n.length<2)return err('Isi nama lengkap.');
+    if(S.users.some(u=>u.wa===w))return err('Nomor sudah terdaftar. Silakan masuk.');
+    S.users.push({nama:n,wa:w,pw});S.user={nama:n,wa:w};S.authMode='login';
+  }else{
+    const u=S.users.find(u=>u.wa===w&&u.pw===pw);if(!u)return err('Nomor WhatsApp atau password salah.');S.user={nama:u.nama,wa:u.wa};
+  }
+  save();S.page==='auth'?go('home'):render();
+}
+function booking(){
+  if(!S.user)return loginForm();
+  const p=S.pre,d=p.date||today();
+  return `<div class="card"><h2>Formulir Booking</h2>
+  <label>Nama pelanggan</label><input id="bn" value="${esc(S.user.nama)}">
+  <label>Nomor WhatsApp</label><input id="bw" type="tel" value="${esc(S.user.wa)}">
+  <div class="row"><div><label>Tanggal bermain</label><input id="bd" type="date" min="${today()}" value="${d}"></div>
+  <div><label>Pilihan lapangan</label><select id="bc">${COURTS.map(c=>`<option value="${c}" ${p.court==c?'selected':''}>Lapangan ${c}</option>`).join('')}</select></div></div>
+  <div class="row"><div><label>Jam mulai</label><select id="bs">${HOURS.map(h=>`<option value="${h}" ${p.start==h?'selected':''}>${hh(h)}</option>`).join('')}</select></div>
+  <div><label>Durasi</label><select id="bl" onchange="est()">${[1,2,3,4].map(x=>`<option value="${x}">${x} jam</option>`).join('')}</select></div></div>
+  <p class="muted" style="margin-top:10px" id="est"></p><div id="be"></div>
+  <button style="margin-top:10px;width:100%" onclick="doBook()">Cek & Simpan Booking</button></div>`;
+}
+function est(){const e=$('est');if(e)e.textContent='Estimasi biaya: '+rp(+$('bl').value*S.profile.harga)}
+function doBook(){
+  const n=$('bn').value.trim(),w=$('bw').value.replace(/\D/g,''),date=$('bd').value,court=+$('bc').value,start=+$('bs').value,dur=+$('bl').value;
+  const e=$('be');
+  if(n.length<2||w.length<9||!date){e.innerHTML='<div class="msg er">Lengkapi nama, nomor WhatsApp, dan tanggal.</div>';return}
+  if(date<today()){e.innerHTML='<div class="msg er">Tanggal tidak boleh sudah lewat.</div>';return}
+  if(!avail(date,court,start,dur)){e.innerHTML='<div class="msg er">Jadwal bentrok atau ditutup. Pilih jam/lapangan lain di menu Jadwal.</div>';return}
+  const b={id:'BF'+Date.now().toString(36).toUpperCase(),nama:n,wa:w,date,court,start,dur,status:'Aktif',bayar:0,riwayat:[],klaim:false};
+  S.bookings.push(b);S.user={nama:n,wa:w};save();
+  e.innerHTML=`<div class="msg ok">Booking berhasil! Kode: <b>${b.id}</b>. Lanjutkan pembayaran di menu Pesanan.</div>`;
+  setTimeout(()=>{go('riwayat');payC(b.id)},1200);
+}
+setInterval(est,500);
+
+/* ===== Pesanan & Pembayaran Pelanggan ===== */
+function riwayat(){
+  if(!S.user)return loginForm();
+  const l=S.bookings.filter(b=>b.wa===S.user.wa).sort((a,b)=>b.date.localeCompare(a.date));
+  return `<div class="card"><h2>Pesanan Saya</h2><p class="muted">Transfer ke: ${esc(S.profile.rek)}</p></div>`+
+  (l.length?l.map(b=>{const t=payTag(b);return `<div class="item"><div class="top"><div><b>${b.id}</b><div class="muted">${fmtD(b.date)}<br>Lap ${b.court}, ${hh(b.start)} - ${hh(b.start+b.dur)} (${b.dur} jam)</div></div><span class="tag t-${t}">${payLbl[t]}</span></div>
+  <p style="margin-top:6px;font-size:14px">Total ${rp(total(b))} | Dibayar ${rp(b.bayar)}</p>
+  <div class="row" style="margin-top:8px">${b.status==='Batal'||b.bayar>=total(b)?'':`<button class="sm" onclick="payC('${b.id}')">💳 Bayar</button>`}
+  ${b.status!=='Batal'&&b.bayar<total(b)&&b.klaim?`<span class="muted">Konfirmasi ${rp(b.klaim.nominal)} terkirim, menunggu verifikasi admin</span>`:''}
+  ${b.bayar>0?`<button class="sm s" onclick="kwitansi('${b.id}')">Lihat Kwitansi</button>`:''}</div></div>`}).join(''):'<div class="card muted">Belum ada pesanan.</div>');
+}
+function payC(id){
+  const b=S.bookings.find(x=>x.id===id),sisa=Math.max(0,total(b)-b.bayar);
+  openM(`<h3>Pembayaran ${b.id}</h3><p class="muted">Lap ${b.court}, ${fmtD(b.date)}, ${hh(b.start)} - ${hh(b.start+b.dur)}</p>
+  <div class="card" style="margin:10px 0"><div class="row" style="justify-content:space-between"><span>Total</span><b>${rp(total(b))}</b></div>
+  <div class="row" style="justify-content:space-between"><span>Sudah dibayar</span><b>${rp(b.bayar)}</b></div>
+  <div class="row" style="justify-content:space-between"><span>Sisa tagihan</span><b style="color:var(--r)">${rp(sisa)}</b></div></div>
+  <label>Pilihan pembayaran</label><select id="cj" onchange="cj()"><option value="dp">Bayar uang muka (DP) lewat transfer</option><option value="lunas">Bayar lunas lewat transfer</option></select>
+  <div id="cf"></div><div id="ce"></div>
+  <div class="row" style="margin-top:12px"><button onclick="sendPay('${id}')">Konfirmasi</button><button class="s" onclick="closeM()">Tutup</button></div>`);
+  cj(id);
+}
+function cj(id){
+  const j=$('cj').value,bid=id||$('cj').dataset.id;
+  if(id)$('cj').dataset.id=id;
+  const b=S.bookings.find(x=>x.id===bid),sisa=Math.max(0,total(b)-b.bayar);
+  $('cf').innerHTML=`<div class="msg ok">Transfer ke: <b>${esc(S.profile.rek)}</b></div><label>Nominal transfer (Rp)</label><input id="cn" type="number" min="1" max="${sisa}" value="${j==='dp'?Math.round(sisa/2):sisa}">
+  <label>Nama pengirim</label><input id="cp" value="${esc(S.user?S.user.nama:'')}">`;
+}
+function sendPay(id){
+  const b=S.bookings.find(x=>x.id===id),j=$('cj').value,sisa=Math.max(0,total(b)-b.bayar);
+  const n=Math.round(+$('cn').value||0);
+  if(n<1||n>sisa){$('ce').innerHTML='<div class="msg er">Nominal harus antara Rp 1 dan sisa tagihan.</div>';return}
+  b.klaim={jenis:j,nominal:n,pengirim:$('cp').value.trim(),at:new Date().toISOString()};
+  save();closeM();render();
+}
+
+/* ===== Kwitansi (FR-8) ===== */
+function kwitansi(id){
+  const b=S.bookings.find(x=>x.id===id);if(!b)return;const t=payTag(b);
+  openM(`<div class="kw"><h3>KWITANSI PEMBAYARAN</h3><p style="text-align:center;font-size:12px;margin-bottom:8px">${esc(S.profile.nama)}</p>
+  <table><tr><td>No. Booking</td><td>: ${b.id}</td></tr><tr><td>Nama</td><td>: ${esc(b.nama)}</td></tr><tr><td>Tanggal main</td><td>: ${fmtD(b.date)}</td></tr>
+  <tr><td>Lapangan</td><td>: ${b.court}, ${hh(b.start)} - ${hh(b.start+b.dur)}</td></tr><tr><td>Total biaya</td><td>: ${rp(total(b))}</td></tr>
+  <tr><td>Telah dibayar</td><td>: <b>${rp(b.bayar)}</b></td></tr><tr><td>Sisa</td><td>: ${rp(Math.max(0,total(b)-b.bayar))}</td></tr><tr><td>Status</td><td>: ${payLbl[t]}</td></tr>
+  <tr><td>Dicetak</td><td>: ${new Date().toLocaleString('id-ID')}</td></tr></table></div>
+  <div class="row" style="margin-top:10px"><button onclick="print()">Cetak</button><button class="s" onclick="closeM()">Tutup</button></div>`);
+}
+
+/* ===== Admin (FR-5,6,7,9,10) ===== */
+function admin(){
+  if(!S.admin){S.role='admin';S.authMode='login';return loginForm()}
+  const T=[['booking','Data Booking'],['jadwal','Jadwal Lapangan'],['profil','Profil']];
+  const t=today(),ak=S.bookings.filter(b=>b.status!=='Batal'),rev=ak.reduce((x,b)=>x+b.bayar,0);
+  const st=[['Booking hari ini',ak.filter(b=>b.date===t).length],['Belum lunas',ak.filter(b=>b.bayar<total(b)).length],['Menunggu verifikasi',ak.filter(b=>b.klaim&&b.bayar<total(b)).length],['Pemasukan tercatat',rp(rev)]];
+  return `<h1 class="big" style="font-size:clamp(26px,5vw,40px);letter-spacing:-1.5px;margin:18px 0 12px">DASHBOARD ADMIN</h1>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px">${st.map(x=>`<div class="card" style="margin:0"><div class="muted">${x[0]}</div><div style="font-size:22px;font-weight:800;color:var(--g)">${x[1]}</div></div>`).join('')}</div>
+  <div class="tabs">${T.map(t=>`<button class="${S.adminTab===t[0]?'on':''}" onclick="S.adminTab='${t[0]}';render()">${t[1]}</button>`).join('')}</div>`+({booking:aBooking,jadwal:aJadwal,profil:aProfil})[S.adminTab]();
+}
+function aBooking(){
+  const q=S.q.toLowerCase();
+  const l=S.bookings.filter(b=>!q||(b.nama+b.id+b.wa+b.date).toLowerCase().includes(q)).sort((a,b)=>b.date.localeCompare(a.date)||a.start-b.start);
+  const rev=S.bookings.filter(b=>b.status!=='Batal').reduce((s,b)=>s+b.bayar,0);
+  return `<div class="card"><h2>Data Booking</h2><p class="muted">Total booking: ${S.bookings.length} | Pemasukan tercatat: ${rp(rev)}</p>
+  <input placeholder="Cari nama / kode / WA / tanggal" value="${esc(S.q)}" oninput="S.q=this.value;aList()" style="margin-top:8px"></div><div id="alist">${aItems(l)}</div>`;
+}
+function aList(){const q=S.q.toLowerCase();$('alist').innerHTML=aItems(S.bookings.filter(b=>!q||(b.nama+b.id+b.wa+b.date).toLowerCase().includes(q)).sort((a,b)=>b.date.localeCompare(a.date)||a.start-b.start))}
+function aItems(l){
+  return l.length?l.map(b=>{const t=payTag(b);return `<div class="item"><div class="top"><div><b>${esc(b.nama)}</b> <span class="muted">${b.id}</span><div class="muted">WA ${esc(b.wa)}<br>${fmtD(b.date)}<br>Lap ${b.court}, ${hh(b.start)} - ${hh(b.start+b.dur)}</div></div><span class="tag t-${t}">${payLbl[t]}</span></div>
+  <p style="margin-top:6px;font-size:14px">Total ${rp(total(b))} | Dibayar ${rp(b.bayar)} ${b.klaim&&b.bayar<total(b)?`<span class="tag t-DP">Pelanggan konfirmasi ${rp(b.klaim.nominal)}${b.klaim.pengirim?' dari '+esc(b.klaim.pengirim):''}</span>`:''}</p>
+  ${b.status==='Batal'?'':`<div class="row" style="margin-top:8px"><button class="sm" onclick="payForm('${b.id}')">Catat Bayar</button><button class="sm s" onclick="reForm('${b.id}')">Ubah Jadwal</button><button class="sm s" onclick="kwitansi('${b.id}')" ${b.bayar?'':'disabled style="opacity:.4"'}>Kwitansi</button><button class="sm d" onclick="cancelB('${b.id}')">Batalkan</button></div>`}</div>`}).join(''):'<div class="card muted">Belum ada data booking.</div>';
+}
+function payForm(id){
+  const b=S.bookings.find(x=>x.id===id);
+  openM(`<h3>Catat Pembayaran ${b.id}</h3><p class="muted">Total ${rp(total(b))}, sudah dibayar ${rp(b.bayar)}</p>
+  <label>Jenis</label><select id="pj"><option value="dp">Uang muka (DP)</option><option value="lunas">Pelunasan</option></select>
+  <label>Nominal (Rp)</label><input id="pn" type="number" min="0" value="${b.klaim?b.klaim.nominal:Math.max(0,total(b)-b.bayar)}">
+  <div class="row" style="margin-top:12px"><button onclick="doPay('${id}')">Simpan & Buat Kwitansi</button><button class="s" onclick="closeM()">Batal</button></div>`);
+}
+function doPay(id){
+  const b=S.bookings.find(x=>x.id===id),n=Math.max(0,+$('pn').value||0);
+  if(!n)return;
+  b.bayar=Math.min(total(b),b.bayar+n);b.klaim=false;b.riwayat.push({n,jenis:$('pj').value,at:new Date().toISOString()});
+  save();closeM();render();kwitansi(id); // include: Mencetak Kwitansi
+}
+function reForm(id){
+  const b=S.bookings.find(x=>x.id===id);
+  openM(`<h3>Ubah Jadwal ${b.id}</h3><p class="muted">${esc(b.nama)}, durasi ${b.dur} jam</p>
+  <label>Tanggal baru</label><input id="rd" type="date" min="${today()}" value="${b.date}">
+  <div class="row"><div><label>Lapangan</label><select id="rc">${COURTS.map(c=>`<option value="${c}" ${b.court==c?'selected':''}>Lap ${c}</option>`).join('')}</select></div>
+  <div><label>Jam mulai</label><select id="rs">${HOURS.map(h=>`<option value="${h}" ${b.start==h?'selected':''}>${hh(h)}</option>`).join('')}</select></div></div><div id="re"></div>
+  <div class="row" style="margin-top:12px"><button onclick="doRe('${id}')">Periksa & Simpan</button><button class="s" onclick="closeM()">Batal</button></div>`);
+}
+function doRe(id){
+  const b=S.bookings.find(x=>x.id===id),d=$('rd').value,c=+$('rc').value,s=+$('rs').value;
+  if(!avail(d,c,s,b.dur,b.id)){$('re').innerHTML='<div class="msg er">Waktu pengganti bentrok / ditutup. Pilih waktu lain.</div>';return}
+  b.date=d;b.court=c;b.start=s;save();closeM();render();
+}
+function cancelB(id){if(confirm('Batalkan booking ini?')){S.bookings.find(x=>x.id===id).status='Batal';save();render()}}
+function aJadwal(){
+  return `<div class="card"><h2>Kelola Jadwal Lapangan</h2><label>Tanggal</label><input type="date" value="${S.jd}" onchange="S.jd=this.value;render()">
+  <p class="muted" style="margin:8px 0">Ketuk sel kosong untuk menutup (maintenance/acara), ketuk sel abu-abu untuk membuka lagi.</p>
+  <div class="scroll"><table><tr><th>Jam</th>${COURTS.map(c=>`<th>Lap ${c}</th>`).join('')}</tr>${HOURS.map(h=>`<tr><td>${hh(h)}</td>${COURTS.map(c=>{const s=cellState(S.jd,c,h);
+    return `<td class="${s}" ${s==='full'?'':`onclick="tog(${c},${h})"`}>${s==='free'?'Kosong':s==='full'?'Terisi':'Tutup'}</td>`}).join('')}</tr>`).join('')}</table></div></div>`;
+}
+function tog(c,h){const i=S.blocks.findIndex(b=>b.date===S.jd&&b.court===c&&b.hour===h);i>=0?S.blocks.splice(i,1):S.blocks.push({date:S.jd,court:c,hour:h});save();render()}
+function aProfil(){
+  const p=S.profile;
+  return `<div class="card"><h2>Kelola Profil Blessing Futsal</h2>
+  ${[['nama','Nama tempat'],['alamat','Alamat lokasi'],['wa','Nomor WhatsApp'],['buka','Jam operasional'],['rek','Rekening pembayaran'],['desk','Deskripsi']].map(f=>`<label>${f[1]}</label><input id="pf_${f[0]}" value="${esc(p[f[0]])}">`).join('')}
+  <label>Harga per jam (Rp)</label><input id="pf_harga" type="number" value="${p.harga}">
+  <button style="margin-top:12px;width:100%" onclick="saveProf()">Simpan Profil</button></div>`;
+}
+function saveProf(){['nama','alamat','wa','buka','rek','desk'].forEach(k=>S.profile[k]=$('pf_'+k).value);S.profile.harga=+$('pf_harga').value||S.profile.harga;save();alert('Profil tersimpan');render()}
+
+render();
+</script>
+</body>
+</html>
