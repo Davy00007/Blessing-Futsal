@@ -14,9 +14,11 @@ export default wrap(async (req, res) => {
 
   if (req.method === 'GET') {
     const bookings = p.role === 'admin'
-      ? await sql`select id, nama, wa, to_char(tgl,'YYYY-MM-DD') as "date", court, mulai as "start", dur, status, bayar, harga, klaim
+      ? await sql`select id, nama, wa, to_char(tgl,'YYYY-MM-DD') as "date", court, mulai as "start", dur, status, bayar, harga, klaim,
+                         (select count(*)::int from proofs p where p.booking_id = bookings.id) as bukti
                   from bookings order by tgl desc, mulai limit 500`
-      : await sql`select id, nama, wa, to_char(tgl,'YYYY-MM-DD') as "date", court, mulai as "start", dur, status, bayar, harga, klaim
+      : await sql`select id, nama, wa, to_char(tgl,'YYYY-MM-DD') as "date", court, mulai as "start", dur, status, bayar, harga, klaim,
+                         (select count(*)::int from proofs p where p.booking_id = bookings.id) as bukti
                   from bookings where user_wa = ${p.sub} order by tgl desc, mulai limit 200`;
     return res.json({ bookings });
   }
@@ -56,8 +58,14 @@ export default wrap(async (req, res) => {
       const jenis = req.body.jenis === 'lunas' ? 'lunas' : 'dp';
       const n = Math.round(+req.body.nominal);
       if (!(n >= 1 && n <= sisa)) throw new HttpError(400, 'Nominal harus antara Rp 1 dan sisa tagihan.');
+      const bukti = String(req.body.bukti || '');
+      if (!/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(bukti) || bukti.length > 900000)
+        throw new HttpError(400, 'Bukti transfer wajib diunggah berupa foto JPG/PNG (maksimal sekitar 600 KB).');
       const klaim = { jenis, nominal: n, pengirim: String(req.body.pengirim || '').trim().slice(0, 60), at: new Date().toISOString() };
-      await sql`update bookings set klaim = ${JSON.stringify(klaim)}::jsonb where id = ${b.id}`;
+      await sql.transaction([
+        sql`insert into proofs(booking_id, data) values(${b.id}, ${bukti})`,
+        sql`update bookings set klaim = ${JSON.stringify(klaim)}::jsonb where id = ${b.id}`,
+      ]);
       return res.json({ ok: true });
     }
 
