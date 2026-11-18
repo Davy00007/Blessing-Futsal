@@ -13,7 +13,7 @@ function ld(k,def){try{const v=localStorage.getItem(k);return v?JSON.parse(v):de
 function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 const SESS=ld('bf_session',{});
 let S={
-  profile:{nama:'Blessing Futsal Purwakarta',alamat:'Purwakarta, Jawa Barat',wa:'',buka:'08.00 - 23.00 WIB',harga:100000,rek:'',desk:''},
+  profile:{nama:'Blessing Futsal Purwakarta',alamat:'Purwakarta, Jawa Barat',wa:'',buka:'08.00 - 23.00 WIB',harga:100000,rek:'DANA +62 898-6422-425',desk:''},
   bookings:[],av:{},token:SESS.token||null,user:SESS.role==='pelanggan'?SESS.user:null,admin:SESS.role==='admin',
   authMode:'login',role:'pelanggan',page:'home',pre:{},adminTab:'booking',jd:today(),q:'',busy:false
 };
@@ -88,7 +88,7 @@ function profil(){
   <div class="card"><h3>🕒 Informasi</h3><p class="muted">Jam operasional</p><p>${esc(p.buka)}</p>
   <p class="muted" style="margin-top:8px">Harga sewa</p><p>${rp(p.harga)} / jam (Lapangan 1, 2, dan 3)</p>
   <p class="muted" style="margin-top:8px">Kontak WhatsApp</p><p>${esc(p.wa)}</p></div>
-  <div class="card"><h3>Cara Booking</h3><ol style="padding-left:18px;line-height:1.7;font-size:14px"><li>Daftar atau masuk dengan nomor WhatsApp</li><li>Lihat jadwal kosong</li><li>Isi formulir booking</li><li>Bayar DP atau lunas lewat transfer, lalu lihat kwitansi di menu Pesanan</li></ol></div>`;
+  <div class="card"><h3>Cara Booking</h3><ol style="padding-left:18px;line-height:1.7;font-size:14px"><li>Daftar atau masuk dengan nomor WhatsApp</li><li>Lihat jadwal kosong</li><li>Isi formulir booking</li><li>Bayar DP atau lunas lewat transfer DANA, unggah bukti transfer, lalu lihat kwitansi di menu Pesanan</li></ol></div>`;
 }
 
 /* ===== Jadwal (FR-2) ===== */
@@ -163,6 +163,7 @@ function riwayat(){
   <p style="margin-top:6px;font-size:14px">Total ${rp(total(b))} | Dibayar ${rp(b.bayar)}</p>
   <div class="row" style="margin-top:8px">${b.status==='Batal'||b.bayar>=total(b)?'':`<button class="sm" onclick="payC('${b.id}')">💳 Bayar</button>`}
   ${b.status!=='Batal'&&b.bayar<total(b)&&b.klaim?`<span class="muted">Konfirmasi ${rp(b.klaim.nominal)} terkirim, menunggu verifikasi admin</span>`:''}
+  ${b.bukti>0?`<button class="sm s" onclick="showProof('${b.id}')">Lihat Bukti</button>`:''}
   ${b.bayar>0?`<button class="sm s" onclick="kwitansi('${b.id}')">Lihat Kwitansi</button>`:''}</div></div>`}).join(''):'<div class="card muted">Belum ada pesanan.</div>');
 }
 function payC(id){
@@ -181,13 +182,32 @@ function cj(id){
   if(id)$('cj').dataset.id=id;
   const b=S.bookings.find(x=>x.id===bid),sisa=Math.max(0,total(b)-b.bayar);
   $('cf').innerHTML=`<div class="msg ok">Transfer ke: <b>${esc(S.profile.rek)}</b></div><label>Nominal transfer (Rp)</label><input id="cn" type="number" min="1" max="${sisa}" value="${j==='dp'?Math.round(sisa/2):sisa}">
-  <label>Nama pengirim</label><input id="cp" value="${esc(S.user?S.user.nama:'')}">`;
+  <label>Nama pengirim</label><input id="cp" value="${esc(S.user?S.user.nama:'')}">
+  <label>Bukti transfer (foto / screenshot)</label><input id="cb" type="file" accept="image/*"><p class="muted" style="margin-top:4px">Wajib diunggah. Gambar otomatis dikecilkan sebelum dikirim.</p>`;
+}
+async function readImg(file){ // kecilkan gambar (maks 1000px, JPEG) agar ringan disimpan
+  return new Promise((ok,no)=>{const r=new FileReader();r.onerror=()=>no(new Error('Gagal membaca gambar.'));
+    r.onload=()=>{const im=new Image();im.onerror=()=>no(new Error('File harus berupa gambar.'));
+      im.onload=()=>{const k=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement('canvas');
+        c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.7))};
+      im.src=r.result};r.readAsDataURL(file)});
 }
 async function sendPay(id){
+  const f=$('cb').files&&$('cb').files[0],err=t=>{$('ce').innerHTML='<div class="msg er">'+esc(t)+'</div>'};
+  if(!f)return err('Unggah bukti transfer terlebih dahulu.');
+  if(S.busy)return;S.busy=true;$('ce').innerHTML='<div class="msg ok">Mengunggah bukti transfer...</div>';
   try{
-    await api('bookings',{method:'PATCH',body:{id,action:'confirm',jenis:$('cj').value,nominal:Math.round(+$('cn').value||0),pengirim:$('cp').value}});
+    const bukti=await readImg(f);
+    await api('bookings',{method:'PATCH',body:{id,action:'confirm',jenis:$('cj').value,nominal:Math.round(+$('cn').value||0),pengirim:$('cp').value,bukti}});
     closeM();await loadBookings();render();
-  }catch(e){$('ce').innerHTML='<div class="msg er">'+esc(e.message)+'</div>'}
+  }catch(e){err(e.message)}finally{S.busy=false}
+}
+async function showProof(id){
+  openM('<p class="muted">Memuat bukti transfer...</p>');
+  try{
+    const d=await api('proof?booking='+encodeURIComponent(id));
+    openM(`<h3>Bukti Transfer ${esc(id)}</h3>${d.proofs.length?d.proofs.map(x=>`<p class="muted" style="margin:10px 0 4px">Diunggah ${esc(x.at)}</p><img src="${x.data}" alt="Bukti transfer" style="width:100%;border:1px solid var(--b);border-radius:8px">`).join(''):'<p class="muted">Belum ada bukti.</p>'}<button class="s" style="margin-top:12px;width:100%" onclick="closeM()">Tutup</button>`);
+  }catch(e){openM('<div class="msg er">'+esc(e.message)+'</div><button class="s" style="margin-top:10px" onclick="closeM()">Tutup</button>')}
 }
 /* ===== Kwitansi (FR-8) ===== */
 function kwitansi(id){
@@ -221,7 +241,7 @@ function aList(){const q=S.q.toLowerCase();$('alist').innerHTML=aItems(S.booking
 function aItems(l){
   return l.length?l.map(b=>{const t=payTag(b);return `<div class="item"><div class="top"><div><b>${esc(b.nama)}</b> <span class="muted">${b.id}</span><div class="muted">WA ${esc(b.wa)}<br>${fmtD(b.date)}<br>Lap ${b.court}, ${hh(b.start)} - ${hh(b.start+b.dur)}</div></div><span class="tag t-${t}">${payLbl[t]}</span></div>
   <p style="margin-top:6px;font-size:14px">Total ${rp(total(b))} | Dibayar ${rp(b.bayar)} ${b.klaim&&b.bayar<total(b)?`<span class="tag t-DP">Pelanggan konfirmasi ${rp(b.klaim.nominal)}${b.klaim.pengirim?' dari '+esc(b.klaim.pengirim):''}</span>`:''}</p>
-  ${b.status==='Batal'?'':`<div class="row" style="margin-top:8px"><button class="sm" onclick="payForm('${b.id}')">Catat Bayar</button><button class="sm s" onclick="reForm('${b.id}')">Ubah Jadwal</button><button class="sm s" onclick="kwitansi('${b.id}')" ${b.bayar?'':'disabled style="opacity:.4"'}>Kwitansi</button><button class="sm d" onclick="cancelB('${b.id}')">Batalkan</button></div>`}</div>`}).join(''):'<div class="card muted">Belum ada data booking.</div>';
+  ${b.status==='Batal'?'':`<div class="row" style="margin-top:8px"><button class="sm" onclick="payForm('${b.id}')">Catat Bayar</button><button class="sm s" onclick="reForm('${b.id}')">Ubah Jadwal</button><button class="sm s" onclick="kwitansi('${b.id}')" ${b.bayar?'':'disabled style="opacity:.4"'}>Kwitansi</button>${b.bukti>0?`<button class="sm s" onclick="showProof('${b.id}')">Lihat Bukti</button>`:''}<button class="sm d" onclick="cancelB('${b.id}')">Batalkan</button></div>`}</div>`}).join(''):'<div class="card muted">Belum ada data booking.</div>';
 }
 function payForm(id){
   const b=S.bookings.find(x=>x.id===id);
