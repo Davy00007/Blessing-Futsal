@@ -26,6 +26,9 @@ export async function db() {
     sql`create table if not exists payments(
       id serial primary key, booking_id text not null references bookings(id),
       jenis text not null, nominal int not null, created_at timestamptz default now())`,
+    sql`create table if not exists proofs(
+      id serial primary key, booking_id text not null references bookings(id),
+      data text not null, created_at timestamptz default now())`,
     // Satu baris = satu jam terpakai. Primary key mencegah booking ganda.
     // booking_id kosong = slot ditutup admin.
     sql`create table if not exists slots(
@@ -41,7 +44,7 @@ const DEFAULT_PROFILE = {
   nama: 'Blessing Futsal Purwakarta',
   alamat: 'Purwakarta, Jawa Barat (ubah alamat lengkap lewat Dashboard Admin)',
   wa: '08xxxxxxxxxx', buka: '08.00 - 23.00 WIB', harga: 100000,
-  rek: 'BCA 0000000000 a.n. Blessing Futsal',
+  rek: 'DANA +62 898-6422-425',
   desk: 'Futsal indoor dengan 3 lapangan, nyaman untuk latihan, turnamen kecil, maupun main bareng teman.',
 };
 export async function getProfile(sql) {
